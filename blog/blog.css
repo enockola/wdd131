@@ -107,7 +107,7 @@ aside {
 }
 
 .form-container {
-    position: fixed;
+    /* position: fixed; */
 }
 
 @media screen and (min-width: 700px) {
