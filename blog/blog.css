@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    object-fit: border-box;
+}
+
+:root {
+    --accent-color: #EFC69B;
+    --primary-color: #AF1B3F;
+    --border-color: #af1b4065;
+    --secondary-color: #473144;
+    --header-font: "Lora", Impact, serif;
+    --paragraph-font: Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    font-family: var(--paragraph-font);
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    padding: 1rem;
+}
+
+h1, h2 {
+    font-family: var(--header-font);
+}
+
+nav {
+    padding: 1rem 0;
+    margin: 0 2rem;
+    text-align: center;
+    border: solid var(--border-color);
+    border-width: 1px 0px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding-right: 1rem;
+}
+
+a:link,
+a:visited {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+main {
+    padding: 1rem 0;
+    margin: auto;
+}
+
+.book {
+    padding-bottom: 2.5rem;
+}
+
+.book-details {
+    text-align: start;
+    line-height: 1.5em;
+    padding: 1.5rem;
+}
+
+.book-details .date {
+    font-size: 1.1em;
+}
+
+.book-description {
+    text-align: left;
+    padding: 1rem;
+}
+
+.book-description .title {
+    color: var(--primary-color);
+}
+
+.book-description img {
+    padding: 1rem 0;
+    width: 300px;
+    display: block;
+    margin: auto;
+}
+
+.book-description .description {
+    display: inline;
+}
+
+.book-description a {
+    display: inline-flex;
+}
+
+aside {
+    border: 1px solid var(--border-color);
+    min-width: 200px;
+    padding: 1rem;
+    display: none;
+    position: relative;
+}
+
+.form-container {
+    position: fixed;
+}
+
+@media screen and (min-width: 700px) {
+    nav ul{
+        justify-content: end;
+    }
+    main {
+        display: flex;
+        justify-content: center;
+    }
+    .book {
+        display: flex;
+        justify-content: end;
+    }
+    .book-details {
+        text-align: end;
+        border-right: 1px solid var(--border-color);
+    }
+    aside {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    nav {
+        margin: 0 3rem;
+    }
+    .book-description {
+        max-width: 700px;
+    }
+}
