@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+header {
+    width: 100;
+    font-size: 4em;
+    color: #ffb242;
+    padding: 2rem;
+}
+
+main {
+    padding: 4rem 0;
+}
+
+label {
+    width: 100%;
+    display: block;
+    margin: 0 auto 7px;
+}
+
+input {
+    outline: none;
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    font-family: lato, 'helvetica-light', 'sans-serif';
+    letter-spacing: .7px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#card-container {
+    margin: auto;
+    width: 500px;
+    height: 325px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 0.2fr 2fr 0.2fr 0.2fr;
+    gap: 1rem;
+}
+
+.card-front,
+.card-back {
+    background-color: #498ee4;
+    border-radius: 6px;
+    padding: 1rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: white;
+}
+
+/* card-front styling */
+
+.card-front {
+    grid-column: 1/3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    align-items: center;
+    z-index: 2;
+}
+
+.payment-amount {
+    grid-column-start: 1;
+    grid-column: span 4;
+}
+
+.cardnumber-container {
+    grid-row-start: 2;
+    grid-column: span 5;
+}
+
+.cardholder-container {
+    grid-row-start: 3;
+    grid-column: span 3;
+}
+
+.date-container {
+    grid-column: span 2;
+}
+
+.date-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* card-back styling */
+
+.card-back {
+    grid-column: 2/4;
+    grid-row: 2/4;
+    z-index: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    position: relative;
+}
+
+.card-stripe {
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+    width: 100%;
+    height: 55px;
+    background-color: #3d5266;
+}
+
+.cvv-container {
+    grid-row-start: 3;
+    grid-column-start: 5;
+}
+
+/* card-btn styling */
+.card-btn {
+    grid-column: 3/4;
+    grid-row: 4/5;
+    background-color: #ffb242;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    border: 1px solid transparent;
+}
+
+.card-btn:hover {
+    background-color: rgba(251, 251, 251, 1);
+    color: #ffb242;
+    outline: none;
+    border: 1px solid #ffb242;
+}
+
+/* shadow styling */
+
+.shadow {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: #000;
+    z-index: 1;
+    border-radius: 0 0 8px 0;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.errorMsg {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+}
