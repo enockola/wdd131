@@ -8,14 +8,11 @@
     <meta name="author" content="Enoch Olayemi">
     <meta name="description" content="This is a credit card info page.">
     <link rel="stylesheet" href="card.css">
-    <script src="card.js" defer></script>
+    <script src="card.js" defer></script> 
     <script src="https://kit.fontawesome.com/acd4da4d53.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <span>Make your payment</span> <i class="fa-solid fa-credit-card"></i>
-    </header>
     <main>
         <p class="errorMsg" style="color: red;"></p>
         <form id="card-container">
@@ -30,19 +27,19 @@
 
                 <div class="cardnumber-container">
                     <label for="cardNumber">Card Number</label>
-                    <input type="number" name="cardNumber" id="cardNumber" placeholder="1234 5678 9101 1112" length="16" autocomplete="off" required>
+                    <input type="number" name="cardNumber" id="cardNumber" placeholder="1234 5678 9101 1112" pattern="[0-9]{16}" required>
                 </div>
 
                 <div class="cardholder-container">
                     <label for="cardHolder">Card Holder</label>
-                    <input type="text" name="cardHolder" id="cardHolder" placeholder="John Doe" autocomplete="off" required>
+                    <input type="text" name="cardHolder" id="cardHolder" placeholder="John Doe" required>
                 </div>
 
                 <div class="date-container">
                     <label for="cardMonth">Expiration</label>
                     <div class="date-grid-container">
-                        <input type="number" name="cardMonth" id="cardMonth" placeholder="MM" length="2" min="1" max="12" autocomplete="off" required>
-                        <input type="number" name="cardYear" id="cardYear" placeholder="YY" length="2" min="1" max="31" autocomplete="off" required>
+                        <input type="number" name="cardMonth" id="cardMonth" placeholder="MM" length="2" min="1" max="12" required>
+                        <input type="number" name="cardYear" id="cardYear" placeholder="YY" length="2" min="1" max="30" required>
                     </div>
                 </div>
             </div>
@@ -54,7 +51,7 @@
 
                 <div class="cvv-container">
                     <label for="cardCvv"> CVC/CVV</label>
-                    <input class="cvv" type="number" name="cardCvv" id="cardCvv" placeholder="XXX" maxlength="3" autocomplete="off" required>
+                    <input class="cvv" type="number" name="cardCvv" id="cardCvv" placeholder="XXX" maxlength="3" required>
                 </div>
             </div>
 

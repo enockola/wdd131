@@ -1,31 +1,41 @@
 function isCardNumberValid(number) {
-	// normally we would contact a credit card service...but we don't know how to do that yet. So to keep things simple we will only accept one number
-	return number === '1234123412341234'
+	return number === '1234123412341234';
 }
+function isExpirationDateValid(month, year) {
+	const expirationDate = new Date(20 + parseInt(year), parseInt(month) - 1);
+	const currentDate = new Date();
+	return expirationDate > currentDate;
+}
+
 function displayError(msg) {
-	// display error message
-	document.querySelector('.errorMsg').innerHTML = msg
+	document.querySelector('.errorMsg').innerHTML = msg;
 }
+
 function submitHandler(event) {
-	event.preventDefault()
-	let errorMsg = ''
-	console.log(this.cardNumber.value)
-	// clear any previous errors
+	const cardNumber = document.querySelector('input[name="cardNumber"]').value;
+	const cardMonth = document.querySelector('input[name="cardMonth"]').value;
+	const cardYear = document.querySelector('input[name="cardYear"]').value;
+
+	event.preventDefault();
+
+	let errorMsg = '';
+
 	displayError('')
-	// check credit card number
-	if (isNaN(this.cardNumber.value)) {
-		// it is not a valid number
-		errorMsg += 'Card number is not a valid number\n'
-	} else if (!isCardNumberValid(this.cardNumber.value)) {
-		// it is a number, but is it valid?
-		errorMsg += 'Card number is not a valid card number\n'
+	if (isNaN(cardNumber)) {
+		errorMsg += 'Card number is not a valid number\n';
+	} else if (!isCardNumberValid(cardNumber)) {
+		errorMsg += 'Card number is not a valid card number\n';
+	}
+	if (!isExpirationDateValid(cardMonth, cardYear)) {
+		errorMsg += 'Expiration date is not valid or it is in the past\n';
 	}
 	if (errorMsg !== '') {
-		// there was an error. stop the form and display the errors.
 		displayError(errorMsg)
 		return false
 	}
+	
+	alert("Payment submitted successfully.")
 	return true
 }
 
-document.querySelector('#credit-card').addEventListener('submit', submitHandler)
+document.querySelector('#card-container').addEventListener('submit', submitHandler);

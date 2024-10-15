@@ -10,13 +10,6 @@ body {
     text-transform: uppercase;
 }
 
-header {
-    width: 100;
-    font-size: 4em;
-    color: #ffb242;
-    padding: 2rem;
-}
-
 main {
     padding: 4rem 0;
 }
@@ -158,7 +151,7 @@ input::-webkit-inner-spin-button {
 
 .errorMsg {
     position: absolute;
-    top: 25%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     text-align: center;
