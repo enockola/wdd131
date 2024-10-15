@@ -33,7 +33,7 @@ function submitHandler(event) {
 		displayError(errorMsg)
 		return false
 	}
-	
+
 	alert("Payment submitted successfully.")
 	return true
 }
