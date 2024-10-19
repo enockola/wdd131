@@ -308,44 +308,71 @@ function recipeTemplate(recipe) {
 
 function tagsTemplate(tags) {
     let html = `<ul class="recipe__tags">`
-
-    // loop through the tags list and transform the strings to HTML
     tags.forEach(function (tag) {
         html += `<li>${tag}</li>`
     });
-
     html += `</ul>`
-
     return html;
 }
 
 function ratingTemplate(rating) {
-    // begin building an html string using the ratings HTML written earlier as a model.
     let html = `<span class="recipe__rating" role="img"	aria-label="Rating: ${rating} out of 5 stars">`
-
-    // our ratings are always out of 5, so create a for loop from 1 to 5
     for (let i = 1; i <= 5; i++) {
-        
-        // check to see if the current index of the loop is less than our rating
-        // if so then output a filled star
         if (i <= rating) {
             html += `<span aria-hidden="true" class="icon-star">⭐</span>`;
-        }
-
-        // else output an empty star
-        else {
+        } else {
             html += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
         }
     }
-    // after the loop, add the closing tag to our string
     html += `</span>`
-    // return the html string
     return html
 }
 
 const recipe = getRandomListEntry(recipes);
 
-// include this in the html
-document.querySelector("#recipe").innerHTML = recipeTemplate(recipe);
+// to include the current random recipe in the html
+// document.querySelector("#recipe").innerHTML = recipeTemplate(recipe);
 
-console.log(recipeTemplate(recipe));
+// rendering the html -- I don't know what this means and how that's different from the code I commented above
+function renderRecipes(recipeList) {
+    const recipeOutput = document.querySelector("#recipe");
+    const recipeHTML = recipeList.map(recipe => recipeTemplate(recipe)).join('');
+    recipeOutput.innerHTML = recipeHTML;
+}
+
+// init the html -- I see.. rendering the html is a set up for outputing a list of items searched.. what does init do then?
+function init() {
+    const recipe = getRandomListEntry(recipes)
+    renderRecipes([recipe]);
+}
+init();
+
+
+function filterRecipes(query) {
+    const filtered = recipes.filter(function (recipe) {
+        // Check if the recipe name or description includes the query
+        const inName = recipe.name.toLowerCase().includes(query);
+        const inDescription = recipe.description.toLowerCase().includes(query);
+
+        // Use optional chaining or a fallback to handle undefined tags or ingredients
+        const inTags = (recipe.tags || []).find(tag => tag.toLowerCase().includes(query));
+        const inIngredients = (recipe.ingredients || []).find(ingredient => ingredient.toLowerCase().includes(query));        
+
+        // Return true if the query matches any of these conditions
+        return inName || inDescription || inTags || inIngredients;
+    });
+
+    const sorted = filtered.sort((a, b) => a.name.localeCompare(b.name));
+    return sorted;
+}
+
+function searchHandler(e) {
+	e.preventDefault()
+	const query = document.querySelector('#search').value.toLowerCase();
+    const filteredRecipes = filterRecipes(query);
+    renderRecipes(filteredRecipes);
+
+}
+
+
+document.querySelector('#submit').addEventListener('click', searchHandler);

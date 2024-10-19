@@ -77,15 +77,21 @@ header {
     padding: 1rem;
 }
 
-.search img {
+.search button {
     width: 30px;
+    height: 30px;
+    background-color: transparent;
+}
+
+.search img {
+    width: 100%;
 }
 
 
 /* main styling */
 
 main {
-    padding: 1rem 1rem 2rem;
+    padding: 1rem 1rem;
 }
 
 .recipe {
@@ -95,6 +101,7 @@ main {
     border: 2px solid black;
     border-radius: 6px;
     padding: 1rem;
+    margin-bottom: 2rem;
 }
 
 .recipe h2 a {
