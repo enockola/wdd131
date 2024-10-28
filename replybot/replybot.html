@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/replybot.css">
     <link rel="icon" href="images/favicon.png" media="all" type="image/x-icon">
-    <script src="js/index.js" defer></script>
-    <script src="js/replybot.js" defer></script>
-    <script src="https://kit.fontawesome.com/acd4da4d53.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -36,7 +33,7 @@
     <!-- header -->
     <header class="container">
         <nav>
-            <img src="images/logo.png" width="113px" height="113px" alt="ReplyBot logo">
+            <img class="logo" src="images/logo.png" width="113" height="113" alt="ReplyBot logo">
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="replybot.html">Canned Responses</a></li>
@@ -58,17 +55,20 @@
                 <li id="sympathy">Sympathy</li>
                 <li id="email">Email Templates</li>
             </ul>
-            <img src="images/logo-dark.png" width="113px" height="113px" alt="ReplyBot logo image">
+            <img class="logo" src="images/logo-dark.png" width="113" height="113" alt="ReplyBot logo image">
         </aside>
-        <section class="nav-adjust">
+        <div class="nav-adjust">
             <div class="content-container">
                 <button id="show-favorites">Show Favorites</button>
                 <div class="content">
                     <!-- canned responses go here -->
                 </div>
             </div>
-        </section>
+        </div>
     </main>
+    <script src="js/index.js" defer></script>
+    <script src="js/replybot.js" defer></script>
+    <script rel="preconnect" src="https://kit.fontawesome.com/acd4da4d53.js" defer crossorigin="anonymous"></script>
 </body>
 
 </html>

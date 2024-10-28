@@ -34,11 +34,6 @@ aside img {
     background-color: var(--nav-hover-background-color);
 }
 
-
-section {
-    width: 100%;
-}
-
 .content-container {
     overflow-y: auto;
     height: 100%;
